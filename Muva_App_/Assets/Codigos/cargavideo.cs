@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class cargavideo : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called once before the firstn execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartCoroutine("Espera");

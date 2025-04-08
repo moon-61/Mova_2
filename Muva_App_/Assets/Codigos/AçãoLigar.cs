@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class AçãoLigar : MonoBehaviour
 {
     private bool ligadoOn = false;  // Inicializa o estado como desligado
-    [SerializeField] Image botaoOFF;
-    [SerializeField] Image botaoON;
+    [SerializeField] Sprite botaoOFF;
+    [SerializeField] Sprite botaoON;
 
     void Start()
     {
@@ -19,14 +19,13 @@ public class AçãoLigar : MonoBehaviour
         if (ligadoOn)
         {
             // Se estiver ligado, mostra a imagem OFF e oculta a imagem ON
-            botaoON.enabled = false;
-            botaoOFF.enabled = true;
+            gameObject.GetComponent<Image>().sprite = botaoOFF;
+            
         }
         else
         {
             // Se estiver desligado, mostra a imagem ON e oculta a imagem OFF
-            botaoON.enabled = true;
-            botaoOFF.enabled = false;
+            gameObject.GetComponent<Image>().sprite = botaoON;
         }
     }
 

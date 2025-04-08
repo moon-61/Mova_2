@@ -249,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0311cf50b9f5f084f85d77f474069a12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botaoOFF: {fileID: 0}
-  botaoON: {fileID: 0}
+  botaoOFF: {fileID: -2276903069596078259, guid: 63c0f3779911c0a4286283fde94a7ada, type: 3}
+  botaoON: {fileID: 223562061249307686, guid: ae43cc16e6918cc4198b94118ac44d10, type: 3}
 --- !u!114 &717343152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +294,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 717343153}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 717343151}
+        m_TargetAssemblyTypeName: "A\xE7\xE3oLigar, Assembly-CSharp"
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &717343153
 MonoBehaviour:
   m_ObjectHideFlags: 0

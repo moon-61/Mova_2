@@ -68,6 +68,8 @@ public class GerenciarComunicacao : MonoBehaviour
 
 
         List<byte> listTemperatura = new List<byte>();
+
+
         List<byte> listUmidade = new List<byte>();
 
         //Recebo os dados em um byte array (byte[]) que contém

@@ -1,20 +1,43 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Text;
 
 public class Grafico : MonoBehaviour
 {
-    public RectTransform graphContainer; // Contenedor donde se dibujará el gráfico
-    public GameObject pointPrefab; // Prefab para los puntos del gráfico
-    public LineRenderer lineRenderer; // LineRenderer para conectar los puntos
-    public List<float> data; // Datos a mostrar en el gráfico
-    public float spacing = 50f; // Espaciado entre puntos
+    public RectTransform graphContainer;
+    public GameObject pointPrefab;
+    public LineRenderer lineRenderer;
+    public float spacing = 50f;
 
+    private List<float> data = new List<float>();
     private List<GameObject> points = new List<GameObject>();
+
+    private string _deviceUuid;
 
     void Start()
     {
-        DrawGraph();
+        // Subscribirse al servicio de comunicación BLE
+        ExampleBleInteractor bleInteractor = FindObjectOfType<ExampleBleInteractor>();
+        if (bleInteractor != null)
+        {
+            _deviceUuid = bleInteractor.GetUUID();
+
+            GerenciarComunicacao gc = GameObject.Find("Comunicacao").GetComponent<GerenciarComunicacao>();
+            gc.OnReceive += OnDataReceived; // Esto debe estar implementado en GerenciarComunicacao
+        }
+    }
+
+    void OnDataReceived(byte[] rawData)
+    {
+        string mensaje = Encoding.ASCII.GetString(rawData);
+        Debug.Log("Dato recibido: " + mensaje);
+
+        if (float.TryParse(mensaje, out float valor))
+        {
+            data.Add(valor);
+            DrawGraph();
+        }
     }
 
     void DrawGraph()
@@ -29,7 +52,8 @@ public class Grafico : MonoBehaviour
             linePoints[i] = point.GetComponent<RectTransform>().anchoredPosition;
         }
 
-        DrawLine(linePoints);
+        lineRenderer.positionCount = linePoints.Length;
+        lineRenderer.SetPositions(linePoints);
     }
 
     GameObject CreatePoint(Vector2 anchoredPos)
@@ -38,12 +62,6 @@ public class Grafico : MonoBehaviour
         point.GetComponent<RectTransform>().anchoredPosition = anchoredPos;
         points.Add(point);
         return point;
-    }
-
-    void DrawLine(Vector3[] positions)
-    {
-        lineRenderer.positionCount = positions.Length;
-        lineRenderer.SetPositions(positions);
     }
 
     void ClearGraph()

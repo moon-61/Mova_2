@@ -12,7 +12,7 @@ public class BarChart : MonoBehaviour
 
     void Start()
     {
-        CreateChart();
+       
     }
 
     void CreateChart()

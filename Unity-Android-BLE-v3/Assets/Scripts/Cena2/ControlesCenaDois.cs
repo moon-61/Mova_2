@@ -13,8 +13,8 @@ public class ControlesCenaDois : MonoBehaviour
     {
         GameObject gm = GameObject.Find("Comunicacao");
         GerenciarComunicacao gc=gm.GetComponent<GerenciarComunicacao>();
-        gc.RegistraRecebedor(Receber);
-        Enviador = gc.Enviar;//Os dados são enviados pelo script que está na primeira cena
+       // gc.RegistraRecebedor(Receber);
+       // Enviador = gc.Enviar;//Os dados são enviados pelo script que está na primeira cena
     }
 
     // Update is called once per frame

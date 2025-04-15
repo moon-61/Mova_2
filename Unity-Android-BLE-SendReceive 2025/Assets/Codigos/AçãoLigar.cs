@@ -11,7 +11,7 @@ public class AçãoLigar : MonoBehaviour
 
     void Start()
     {
-        OnOff();  // Ajusta o estado do botão ao iniciar
+         // Ajusta o estado do botão ao iniciar
     }
 
     public void OnOff()

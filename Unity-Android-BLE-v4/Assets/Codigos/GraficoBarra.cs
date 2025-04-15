@@ -8,7 +8,7 @@ public class BarChart : MonoBehaviour
     public float barWidth = 50f;        // Largura de cada barra
     public float barSpacing = 10f;      // Espaço entre barras
     public float maxValue = 100f;       // Valor máximo representado
-    public float[] data = { 5, 12, 30, 45, 60, 70, 80, 90, 85, 60, 40, 20 }; // Dados de exemplo
+    public float[] data = { 5, 12 }; // Dados de exemplo
 
     void Start()
     {
